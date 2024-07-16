@@ -1,0 +1,35 @@
+//LE1
+
+;MOV R0 , #226
+;MOV R1 , #4
+;MOV TMOD , #02H
+;MOV IE , #82H
+;SS: SETB TR0
+;MM: JB TF0 , KK
+;KK: DJNZ R0 , MM
+	;DJNZ R1 , MM
+;CPL A
+;MOV P1  , A
+;CLR TR0
+;SJMP SS
+;END
+
+//LE2
+
+ORG 00H 
+    SJMP START
+
+ORG 30H
+START: 
+    MOV TMOD, #01H
+    MOV IE, #82H
+MM: 
+    MOV TH0, #0D8H
+    MOV TL0, #01H
+	SETB TR0
+	SJMP MM
+
+ORG 0BH
+    CPL P1.5
+    RETI
+END

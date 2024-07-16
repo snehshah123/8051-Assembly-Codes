@@ -1,0 +1,19 @@
+ORG 00H 
+    SJMP START
+	
+ORG 30H
+START: 
+    MOV TMOD, #02H
+    MOV IE, #82H
+MM: 
+    MOV TH0, #00H
+    SETB TR0
+    SJMP MM
+	
+ORG 0BH
+	CPL A
+	MOV P0 , A
+	CLR TR0
+	CLR TF0 
+	RETI
+END

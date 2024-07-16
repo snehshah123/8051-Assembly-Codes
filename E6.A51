@@ -1,0 +1,36 @@
+;//Q1
+;ORG 00H
+	;SJMP MAIN
+
+;ORG 0BH	
+	;MAIN : MOV TMOD , #20H //MODE 2
+			;MOV TH1 , #0FDH
+			;MOV SCON , #40H
+			;SETB TCON.6 //TIMER1
+	;AGAIN : MOV A , #'S'
+			;ACALL TRANS
+			;MOV A , #'N'
+			;ACALL TRANS
+			;MOV A , #'E'
+			;ACALL TRANS
+			;MOV A , #'H'
+			;ACALL TRANS
+			;MOV A , #' '
+			;ACALL TRANS
+;//CLR TCON.6
+	;SJMP AGAIN
+
+	;TRANS : MOV SBUF , A
+	;HERE : JNB SCON.1 , HERE //TI
+	;CLR SCON.1
+	;RET
+;END
+
+//PLE1
+
+MOV TMOD , #20H
+MOV TH1 , #0F4H
+MOV SCON , #50H
+SETB TR1
+MOV A , P1
+END

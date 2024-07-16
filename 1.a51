@@ -1,0 +1,19 @@
+//LE1
+
+;SETB PSW.3
+;SETB PSW.4
+;MOV R0 , #05H
+;MOV R1 , #05H
+;MOV R2 , #05H
+;MOV R3 , #05H
+;END
+
+//LE2
+
+;MOV 21H , #90H
+;MOV 22H , #30H
+;MOV A , 21H
+;MOV R0 , 22H
+;MOV 22H , A
+;MOV 21H , R0
+;END
